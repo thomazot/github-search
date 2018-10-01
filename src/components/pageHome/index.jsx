@@ -4,7 +4,7 @@ import ListUsers from '../listUsers';
 import axios from 'axios';
 import './style.styl';
 
-class Home extends Component {
+class PageHome extends Component {
     constructor(props) {
         super(props);
 
@@ -30,8 +30,11 @@ class Home extends Component {
 
     render() {
         
-        return <div className="home">
-            <div className="home__container">
+        return <div className="page-home">
+            <div className="page-home__container">
+                <div className="page-home__header">
+                    <h1 className="page-home__title">GitHub - Search</h1>
+                </div>
                 <Search onSubmit={ this.onSubmit } onChange={ this.onChange } />
                 <ListUsers users={ this.state.users } />
             </div>
@@ -39,4 +42,4 @@ class Home extends Component {
     }
 };
 
-export default Home;
+export default PageHome;

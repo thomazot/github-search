@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './style.styl';
 
 class User extends Component {
-    constructor(props) {
-        super(props);
-        this.handleClick = this.handleClick.bind(this);
-    }
-    handleClick() {
-        console.log(this.props);
-    }
     render() {
         let user = this.props.user;
 
-        return <article onClick={ this.handleClick } className="user">
+        return <article className="user">
             <figure className="user__figure">
-                <img className="user__image" src={ user.avatar_url } alt={ user.login } />
+                <Link to={ `/user/${ user.login }` }>
+                    <img className="user__image" src={ user.avatar_url } alt={ user.login } />
+                </Link>
             </figure>
-            <h1 className="user__login">{ user.login }</h1>
+            <h1 className="user__login"><Link to={ `/user/${ user.login }` }>{ user.login }</Link></h1>
         </article>;
     }
 };

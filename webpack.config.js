@@ -1,5 +1,5 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 const miniCssExtractPlugin    = require("mini-css-extract-plugin");
 const iconfontWebpackPlugin   = require('iconfont-webpack-plugin');
 
@@ -24,13 +24,14 @@ module.exports = {
         new miniCssExtractPlugin({
             filename: "./[name].css"
         }),
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template: './public/index.html',
-            inject: true
-        })
+        // new HtmlWebpackPlugin({
+        //     filename: 'index.html',
+        //     template: './public/index.html',
+        //     inject: true
+        // })
     ],
     devServer: {
+        contentBase: './public',
         open: true,
         historyApiFallback: true,
         noInfo: true

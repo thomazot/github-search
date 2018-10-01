@@ -1,0 +1,28 @@
+.page-home 
+    display             : flex 
+    justify-content     : center 
+    align-items         : center 
+
+    width               : viewport 
+    min-height          : 100vh
+    max-width           : 100% 
+
+    margin              : 0 auto
+
+    &__container 
+        display         : flex 
+        align-items     : center 
+        justify-content : space-between 
+        flex-flow       : column nowrap
+
+    &__title 
+        padding         : 50px 0 0
+        font-size       : 22px 
+        font-weight     : bold 
+        text-transform  : uppercase
+        text-align      : center
+        color           : lighten(color[0], 80%)
+        &:before 
+            font-icon   : url('./icons/github.svg')
+            font-size   : 30px 
+            display     : block
