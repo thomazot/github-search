@@ -1,0 +1,23 @@
+.repos 
+    &__name 
+        padding             : 10px 0
+        font-size           : 14px
+        color               : lighten(color[0], 30%)
+        font-weight         : semi-bold
+    &__description
+        position            : relative 
+        background          : rgba(0,0,0,.05)
+        padding             : 15px
+        overflow            : hidden 
+        font-size           : 12px
+        border-radius       : 4px
+        &:before 
+            position        : absolute 
+            top             : -5px 
+            left            : 20px
+            content         : ''
+            width           : 10px
+            height          : 10px 
+            background      : #fff
+            border-radius   : 2px 
+            transform       : rotate(45deg)

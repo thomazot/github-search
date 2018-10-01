@@ -1,0 +1,33 @@
+.page-user
+    &__container
+        width       : viewport 
+        max-width   : 100%
+        margin      : 0 auto
+
+    &__links 
+        margin      : 15px -15px
+
+    &__figure 
+        flex        : 1 1 460px
+        padding     : 15px
+        text-align  : center 
+        border      : solid 1px lighten(color[0], 80%)
+
+        img 
+            display     : inline-block 
+
+    &__header 
+        display         : flex 
+        justify-content : space-between 
+        align-items     : flex-start 
+        flex-flow       : row wrap  
+        margin          : 0 -15px
+    
+    &__content 
+        flex            : 1 1 auto
+        padding         : 15px 
+
+@media(min-width: 768px)
+    .page-user 
+        &__header 
+            flex-wrap   : nowrap

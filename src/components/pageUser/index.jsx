@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+
 import ListRepos from '../listRepos';
+import Header from '../header';
+
+import './style.styl';
 
 class PageUser extends Component {
     constructor(props) {
@@ -10,6 +13,10 @@ class PageUser extends Component {
             user: {},
             repos: []
         };
+        this.goBack = this.goBack.bind(this);
+    }
+    goBack() {
+        this.props.history.goBack();
     }
     componentDidMount() {
         const { match: { params } } = this.props;
@@ -30,15 +37,22 @@ class PageUser extends Component {
 
         return <div className="page-user">
             <div className="page-user__container">
-                <Link to="/">Voltar</Link>
-                <figure className="page-user__figure">
-                    <img className="page-user__image" src={ user.avatar_url } alt={ user.login } />
-                </figure>
-                <h1 className="page-user__login">{ user.login }</h1>        
-                <div>Seguidores: { user.followers }</div>
-                <div>Seguindo: { user.following }</div>
-                <div>E-Mail: { user.email ? user.email : 'E-Mail não cadastrado' }</div>
-                <div>{ user.bio }</div>
+                <Header />
+                <div className="page-user__links">
+                    <a className="link link-back" onClick={this.goBack} href="#back">Voltar</a>
+                </div>
+                <div className="page-user__header">
+                    <figure className="page-user__figure">
+                        <img className="page-user__image" src={ user.avatar_url } alt={ user.login } />
+                    </figure>
+                    <div className="page-user__content">
+                        <h1 className="page-user__login">{ user.login }</h1>        
+                        <div className="page-user__followers">Seguidores: { user.followers }</div>
+                        <div className="page-user__following">Seguindo: { user.following }</div>
+                        <div className="page-user__email">E-Mail: { user.email ? user.email : 'E-Mail não cadastrado' }</div>
+                        <div className="page-user__bio">{ user.bio }</div>
+                    </div>
+                </div>
 
                 <ListRepos repos={repos} />
             </div>
