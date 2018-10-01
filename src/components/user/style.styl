@@ -1,0 +1,49 @@
+.user
+    position                : relative
+    transition              : all .2s ease-in-out
+    cursor                  : pointer
+    padding                 : 15px
+    border                  : solid 1px lighten(color[0], 90%)
+    border-radius           : 4px
+    &__figure 
+        display             : inline-block
+        position            : relative 
+        width               : 100px 
+        height              : 100px 
+        border-radius       : 50%
+        overflow            : hidden 
+    &__image 
+        position            : relative
+        top                 : 50%
+        left                : 50%
+        max-width           : 100%
+        transform           : translate(-50%, -50%)
+    &__login 
+        position            : absolute
+        bottom              : 15px 
+        left                : 15px 
+        width               : calc(100% - 30px)
+        padding             : 5px 0
+        border              : solid 1px lighten(color[0], 90%)
+        border-radius       : 4px
+        font-size           : 14px 
+        text-transform      : lowercase
+        text-align          : center
+        text-overflow       : ellipsis 
+        transition          : all .2s ease-in-out
+        transform           : translate3d(0, 100%, 0)
+        background          : rgba(255,255,255,.9)
+        overflow            : hidden
+        opacity             : 0 
+        visibility          : 0
+        &:before 
+            content         : '@'
+    &:hover 
+        transform           : scale(1.1)
+        .user__login 
+            transform       : translate3d(0,0,0)
+            opacity         : 1
+            visibility      : visible 
+        
+
+    

@@ -8,6 +8,9 @@ import { BrowserRouter, Route } from 'react-router-dom';
 // Import Components
 import Home from './components/home';
 
+// Style Global
+import './css/index.styl';
+
 ReactDOM.render (
     <BrowserRouter>
         <Route path="/" component={Home} />

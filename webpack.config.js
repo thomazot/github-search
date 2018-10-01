@@ -1,5 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const miniCssExtractPlugin    = require("mini-css-extract-plugin");
+const iconfontWebpackPlugin   = require('iconfont-webpack-plugin');
+
 const mode = process.env.WEBPACK_MODE || 'development';
 
 module.exports = {
@@ -18,9 +21,12 @@ module.exports = {
         }
     },
     plugins: [
+        new miniCssExtractPlugin({
+            filename: "./[name].css"
+        }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: './src/index.html',
+            template: './public/index.html',
             inject: true
         })
     ],
@@ -41,18 +47,28 @@ module.exports = {
 
             },
             {
-                test: /\.(css|styl)$/,
+                test: /\.styl$/,
                 use: [
+                    miniCssExtractPlugin.loader,
                     'css-loader',
-                    'stylus-loader',
                     {
                         loader: 'postcss-loader',
                         options: {
-                            ident: 'postcss',
                             plugins: (loader) => [
-                                require('autoprefixer')
+                                new iconfontWebpackPlugin(loader),
+                                require('autoprefixer')({
+                                    browsers: ['last 2 versions'],
+                                    grid: true
+                                })
                             ]
                         }
+                    },
+                    {
+                        loader: 'stylus-loader',
+                        options: {
+                            import: path.resolve(__dirname, './src/configs/variants.styl')
+                        }
+    
                     }
                 ]
             }

@@ -1,0 +1,35 @@
+.search 
+    padding             : 30px
+    transition          : all .2s ease-in-out
+    &__form 
+        position        : relative 
+        display         : inline-flex 
+        justify-content : center 
+        align-items     : center  
+    input 
+        height          : 40px 
+        line-height     : 40px 
+        padding         : 0 55px 0 15px
+        width           : 100% 
+        border          : solid 1px lighten(color[0], 80%)
+        transition      : all .2s ease-in-out
+    .button 
+        position        : absolute 
+        top             : 0
+        right           : 0
+        &__submit 
+            display             : inline-flex 
+            justify-content     : center 
+            align-items         : center 
+            font-size           : 0 
+            background          : none
+            color               : lighten(color[0], 50%)
+            &:before 
+                font-icon       : url('./icons/search.svg')
+                font-size       : 20px
+    &--focus
+        transform               : scale(1.1)
+        input 
+            border-color        : lighten(color[0], 50%)
+
+        

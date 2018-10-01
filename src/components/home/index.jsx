@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Search from '../search';
-import Users from '../users';
+import ListUsers from '../listUsers';
 import axios from 'axios';
+import './style.styl';
 
 class Home extends Component {
     constructor(props) {
@@ -29,9 +30,11 @@ class Home extends Component {
 
     render() {
         
-        return <div>
-            <Search onSubmit={ this.onSubmit } onChange={ this.onChange } />
-            <Users users={ this.state.users } />
+        return <div className="home">
+            <div className="home__container">
+                <Search onSubmit={ this.onSubmit } onChange={ this.onChange } />
+                <ListUsers users={ this.state.users } />
+            </div>
         </div>;
     }
 };
